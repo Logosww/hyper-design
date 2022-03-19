@@ -1,0 +1,8 @@
+@use 'var' as *; 
+@use 'icon' as *;
+
+:root {
+    @include theme-color;
+    @include theme-shadow;
+    @include theme-font;
+}

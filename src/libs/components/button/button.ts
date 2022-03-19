@@ -1,3 +1,5 @@
+import type { ExtractPropTypes } from "vue";
+
 const typeMap = [
     'default',
     'primary',
@@ -13,6 +15,8 @@ const typeMap = [
 
 
 export const buttonProps = {
+    color: String,
+    plain: Boolean,
     type: {
         type: String,
         default: 'default',
@@ -43,8 +47,8 @@ export const buttonProps = {
     }
 };
 
-// export type buttonProps = ExtractPropTypes<typeof ButtonProps>;
+export type ButtonProps = ExtractPropTypes<typeof buttonProps>;
 
 export const buttonEmits = {
     click: (evt: MouseEvent) => evt instanceof MouseEvent
-}
+};

@@ -1,7 +1,8 @@
 <template>
     <button
         @click="handleClick"
-        :class="['my-button', `btn-size-${ size }`, `btn-${ type }`, round ? 'btn-round' : '', circle && icon ? 'btn-circle' : '']"
+        :style="buttonStyle"
+        :class="['my-button', `size-${ size }`, `${ type }`, round ? 'round' : '', circle && icon ? 'circle' : '', plain ? 'plain' : '']"
     >
         <span>
             <my-icon v-if="icon" :size="iconSize" name="search" :style="iconStyle" ></my-icon>
@@ -12,10 +13,10 @@
 
 <script lang="ts">
 import { MyIcon } from 'components/icon';
-
 import { defineComponent, computed } from 'vue';
-
 import { buttonEmits, buttonProps } from './button';
+import { TinyColor } from '@ctrl/tinycolor';
+import { useCssVar } from '@vueuse/core';
 
 export default defineComponent({
     name: 'MyButton',
@@ -45,6 +46,45 @@ export default defineComponent({
             return sizeMap[props.size];
         });
 
+        const typeColor = useCssVar(`--my-color-button-${props.type}`);
+
+        const buttonStyle = computed(() => {
+            let styles = {};
+            const originBgColor = new TinyColor(props.color || typeColor.value);
+            styles[`--my-color-button-${props.type}`] = originBgColor;
+            const tintBgColor = originBgColor.tint(20).toString();
+            const shadeBgColor = originBgColor.shade(10).toString();
+            if(props.type !== 'default') styles[`--my-color-button-${props.type}-hover`] = tintBgColor;
+            styles[`--my-color-button-active`] = shadeBgColor;
+            if(props.color) {
+                styles[`--my-color-button-${props.type}-hover`] = tintBgColor;
+                styles['--my-color-button-text-custom'] = originBgColor.isLight() ? '#000' : '#fff';
+            } else if(props.type === 'default'){
+                styles['--my-color-button-border-default'] = '#5b5e63';
+            }
+            if(props.plain) {
+                if(props.type !== 'default') {
+                    styles['--my-color-button-plain'] = originBgColor.tint(90).toString();
+                    styles['--my-color-button-plain-hover'] = originBgColor.toString();
+                    styles['--my-color-button-plain-active'] = shadeBgColor;
+                } else if(!props.color){
+                    styles['--my-color-button-plain'] = '#fff';
+                    styles['--my-color-text-plain'] = '#111';
+                    styles['--my-color-button-plain-hover'] = 'var(--my-color-primary)'
+                    styles['--my-color-button-plain-active'] = new TinyColor(useCssVar('--my-color-primary').value).shade(20).toString();
+                } else {
+                    styles['--my-color-button-plain'] = originBgColor.tint(90).toString();
+                    styles['--my-color-text-plain'] = originBgColor.toString();
+                    styles['--my-color-button-plain-custom-hover'] = originBgColor.toString();
+                    styles['--my-color-button-plain-text-custom'] = originBgColor.isLight() ? '#000' : '#fff';
+                    styles['--my-color-button-plain-custom-active'] = shadeBgColor;
+                    styles['--my-color-button-plain-border-custom'] = shadeBgColor;
+                }
+                
+            }
+            styles['--my-color-text-active'] = shadeBgColor;
+            return styles;
+        });
 
         const handleClick = (event: MouseEvent) => {
             emit('click', event);
@@ -53,97 +93,10 @@ export default defineComponent({
         return {
             iconStyle,
             iconSize,
+            buttonStyle,
             handleClick
         }
     }
 });
 
 </script>
-
-<style lang="scss">
-    *{
-        user-select: none;
-    }
-    .my-button{
-        display: inline-block;
-        -webkit-appearance: none;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: all .3s ease;
-        box-sizing: border-box;
-        font-size: 14px;
-        font-weight: 500;
-        padding: 12px 19px;
-        color: #606266;
-        margin-left: 10px;
-
-        &.my-button:hover{
-            background-color: rgb(218, 216, 216);
-        }
-        &.btn-default{
-            color: #606266;
-        }
-
-        &.btn-default:hover{
-            background-color: rgb(218, 216, 216);
-        }
-
-        &.btn-primary{
-            background-color: #1abc9c;
-            color: #fff;
-        }
-
-        &.btn-primary:hover{
-            background-color: #3adbbb;
-        }
-
-        &.btn-warn{
-            background-color: #ffba3b;
-            color: #fff;
-        }
-
-        &.btn-warn:hover{
-            background-color: #e99c29;
-        }
-
-        &.btn-danger{
-            background-color: #ff7a73;
-            color: #fff;
-        }
-
-        &.btn-text{
-            background-color: transparent !important;
-            padding: none !important;
-        }
-
-        &.btn-danger:hover{
-            background-color: #eb4940;
-        }
-
-        &.btn-size-large{
-            padding: 12px 19px;
-        }
-
-        &.btn-size-small{
-            font-size: 12px;
-            padding: 9px 12px;
-        }
-
-        &.btn-size-medium{
-            padding: 9px 13px;
-        }
-
-        &.btn-round{
-            border-radius: 20px;
-        }
-
-        &.btn-circle{
-            border-radius: 50%;
-            padding: 12px;
-        }
-    }
-
-
-</style>

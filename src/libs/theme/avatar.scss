@@ -1,0 +1,41 @@
+.my-avatar{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+    background-color: var(--my-color-primary);
+    width: var(--my-avatar-size);
+    height: var(--my-avatar-size);
+    font-size: var(--my-avatar-text-size);
+    
+    & > img {
+        display: block;
+        height: 100%;
+    }
+
+    &.size-default {
+        --my-avatar-size: 40px;
+        --my-avatar-text-size: 14px;
+    }
+
+    &.size-large {
+        --my-avatar-size: 56px;
+        --my-avatar-text-size: 18px;
+    }
+
+    &.size-small {
+        --my-avatar-size: 24px;
+        --my-avatar-text-size: 10px;
+    }
+
+    &.shape-circle {
+        border-radius: 50%;
+    }
+
+    &.shape-square {
+        border-radius: 8px;
+    }
+}

@@ -21,6 +21,9 @@ export const messageProps = {
     type : String,
     onClose: <() => void>(Function) as any,
     content: String,
+    button: String,
+    buttonColor: String,
+    btnOnClick: <() => void>(Function) as any
 };
 
 export const messageEmits = {

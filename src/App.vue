@@ -5,6 +5,13 @@
       <my-button @click="success" type="primary">主要按钮</my-button>
       <my-button @click="error" type="danger">危险按钮 </my-button>
       <my-button @click="warn" type="warn">警告按钮 </my-button>
+      <my-button color="#9b59b6">Custom</my-button>
+      <my-button type="text" color="#9b59b6">Custom</my-button>
+      <my-button @click="info" plain>默认按钮</my-button>
+      <my-button @click="success" type="primary" plain>主要按钮</my-button>
+      <my-button @click="error" type="danger" plain>危险按钮 </my-button>
+      <my-button @click="warn" type="warn" plain>警告按钮 </my-button>
+      <my-button color="#9b59b6" plain>Custom</my-button>
       <my-button @click="visible = true" round>默认按钮</my-button>
       <my-button type="primary" size="medium" round @click="getVisible"
         >主要按钮</my-button
@@ -13,7 +20,6 @@
       <my-button icon="search"> 搜索 </my-button>
       <my-button icon="search" type="primary" size="medium"> 搜索 </my-button>
       <my-button icon="search" size="medium" circle> </my-button>
-      <!-- <my-button type="text">文字按钮</my-button> 全部组件的样式需用sass重写，先学一下--> 
       <my-dialog v-model="visible" :close-on-click-modal="false">
         <my-button @click="vis = true">打开嵌套的对话框</my-button>
         <my-dialog v-model="vis" title="略略略">
@@ -31,6 +37,16 @@
           <my-button size="medium" @click="visible = false">取消</my-button>
         </template>
       </my-dialog>
+      <my-card>
+        <template #header>
+          <div>
+            Header
+          </div>
+        </template>
+        <p>Card</p>
+      </my-card>
+      <my-avatar size="large" icon="search"></my-avatar>
+      <my-avatar>头像</my-avatar>
     </div>
   </div>
 </template>
@@ -50,8 +66,9 @@ export default {
       this.$message({
         content: "你点到我了啊啊啊啊啊啊啊啊啊",
         type: "info",
-        onClose() {
+        onClose: () => {
           console.log("closed");
+          this.$message.success('123')
         },
       });
     },
@@ -66,7 +83,11 @@ export default {
     },
     success() {
       this.$message({
-        content: "你点到我了啊啊啊啊啊啊啊啊啊",
+        content: "序列号生成成功",
+        button: '点击复制',
+        btnOnClick: () => {
+          this.$message.success('复制成功');
+        },
         type: "success",
         onClose() {
           console.log("closed");
@@ -101,9 +122,10 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 @font-face {

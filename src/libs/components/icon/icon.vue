@@ -5,31 +5,12 @@
 <script lang="ts">
 
 import { defineComponent, computed } from 'vue';
-
+import { iconProps } from './icon';
 import type { CSSProperties } from 'vue';
 
 export default defineComponent({
     name: 'MyIcon',
-    props: {
-        name: {
-            required: true,
-            type: String
-        },
-        size: {
-            required: false,
-            type: [String, Number],
-            validator: (val: unknown): boolean => {
-                if(typeof val !== 'string' && typeof val !== 'number') return false;
-                else if(typeof val === 'string') {
-                    return ['small', 'medium', 'large'].includes(val);
-                } else return true;
-            }
-        },
-        color: {
-            required: false,
-            type: String
-        }
-    },
+    props: iconProps,
     
     setup(props) {
         let sizes = {
