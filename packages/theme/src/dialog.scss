@@ -1,0 +1,173 @@
+.hp-scrollbar__wrap {
+  overflow: auto;
+  height: 100%;
+}
+.hp-popup-parent--hidden {
+  overflow: hidden;
+}
+.hp-draggable {
+  cursor: move;
+}
+.hp-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--hp-color-overlay);
+  backdrop-filter: blur(3px);
+}
+.hp-dialog-container {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: var(--hp-shadow-dialog);
+}
+.hp-dialog-header {
+  padding: 15px 35px 0 25px;
+}
+
+.hp-dialog-main {
+  padding: 15px 35px 20px 25px;
+}
+
+.hp-dialog-title {
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #303133;
+  margin-bottom: 10px;
+}
+.hp-dialog-close {
+  float: right;
+}
+.hp-dialog-close > i {
+  color: #4e4e4e;
+  font-size: 15px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--hp-color-primary-hover);
+  }
+}
+.hp-dialog-body {
+  margin-top: 10px;
+  margin-left: 20px;
+  min-width: 300px;
+  max-width: 600px;
+  word-break: break-all;
+  color: #606266;
+  margin-bottom: 17px;
+}
+.hp-dialog-footer {
+  text-align: right;
+}
+
+.hp-dialog-fade-enter-active {
+  animation: hp-fade-in-linear 0.2s ease;
+  .hp-dialog-wrapper {
+    animation: hp-slide-up-in .6s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+}
+
+.hp-dialog-fade-leave-active {
+  animation: hp-fade-out-linear 0.2s ease;
+  .hp-dialog-wrapper {
+    animation: hp-slide-up-out 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+}
+@keyframes hp-slide-up-in {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+@-webkit-keyframes hp-slide-up-in {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+@-webkit-keyframes hp-slide-up-out {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8);
+  }
+}
+@keyframes hp-slide-up-out {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.8);
+    transform: scaleY(0.8);
+  }
+}
+
+@keyframes hp-fade-in-linear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hp-fade-out-linear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes test {
+  //新的模态框动画Test
+  0% {
+    transform: rotateX(90deg) translateY(100%);
+  }
+  100% {
+    transform: rotateX(0) translateY(0);
+  }
+}

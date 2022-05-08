@@ -1,0 +1,26 @@
+@use 'var' as *;
+
+::-webkit-scrollbar {
+    width: $scrollbar-size;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: $scrollbar-size;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(144, 153, 148, .4);
+    border-radius: 8px;
+
+    &:hover {
+        background-color: rgba(96, 102, 98, .5);
+    }
+
+    &:active {
+        background-color: rgba(96, 102, 98, .6);
+    }
+}

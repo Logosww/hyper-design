@@ -1,0 +1,185 @@
+@use 'mixin'as *;
+
+.home-page {
+
+    .banner {
+        // margin-top: 4vh;
+
+        .banner-desc {
+
+            .logo-banner {
+                display: block;
+                margin: 0 auto;
+                width: 300px;
+            }
+
+            h1 {
+                color: #303133;
+                text-align: center;
+                margin-bottom: 1vh;
+                margin-top: -2vh;
+            }
+
+            p {
+                color: #606266;
+                text-align: center;
+            }
+
+            h3 {
+                color: var(--hp-color-primary);
+                text-align: center;
+                margin: 5vh auto;
+                margin-bottom: 1vh;
+                font-size: 1rem;
+            }
+
+            .repo {
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                i {
+                    font-size: 16px;
+                }
+            }
+
+            .countdown {
+                /* position: absolute;
+                  left: 50%;
+                  transform: translateX(-50%); */
+                box-sizing: border-box;
+                margin: 0 auto;
+                max-width: 400px;
+                width: 90vw;
+                padding: 2vh 3vw 2.5vh 3vw;
+                margin-top: 5vh;
+                border-radius: 24px;
+                border: 1px solid #dcdfe6;
+                background-color: rgba(224, 245, 242, .7);
+                user-select: none;
+                box-shadow:
+                    0px 1.2px 2.6px -5px rgba(0, 0, 0, 0.014),
+                    0px 2.9px 6.3px -5px rgba(0, 0, 0, 0.02),
+                    0px 5.4px 11.8px -5px rgba(0, 0, 0, 0.025),
+                    0px 9.6px 21px -5px rgba(0, 0, 0, 0.03),
+                    0px 18px 39.3px -5px rgba(0, 0, 0, 0.036),
+                    0px 43px 94px -5px rgba(0, 0, 0, 0.05);
+
+
+
+                .time {
+                    display: flex;
+                    justify-content: space-between;
+
+                    >div {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                }
+
+                .unit {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #606266;
+                }
+
+                span {
+                    font-size: 40px;
+                    font-weight: 800;
+                    color: rgb(18, 175, 144);
+                }
+
+                h2 {
+                    color: #909299;
+                    font-size: 18px;
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+
+            @include respond-to('sm') {
+                h3 {
+                    font-size: 1rem;
+                }
+
+                .countdown {
+
+                    max-width: 480px;
+
+                    .unit {
+                        font-size: 18px;
+                    }
+
+                    span {
+                        font-size: 48px;
+                    }
+
+                    h2 {
+                        font-size: 22px;
+                    }
+                }
+            }
+
+            @include respond-to('md') {
+                h3 {
+                    font-size: 1.2rem;
+                }
+            }
+
+            @include respond-to('xlg') {
+                h3 {
+                    font-size: 1.3rem;
+                }
+
+                .countdown {
+                    max-width: 650px;
+
+                    .unit {
+                        font-size: 20px;
+                    }
+
+                    span {
+                        font-size: 70px;
+                    }
+
+                    h2 {
+                        font-size: 24px;
+                    }
+                }
+
+                .logo-banner {
+                    width: 400px;
+                }
+            }
+
+            @include respond-to('xxl') {
+                h3 {
+                    font-size: 1.35rem;
+                }
+
+                .countdown {
+                    max-width: 750px;
+
+                    .unit {
+                        font-size: 24px;
+                    }
+
+                    span {
+                        font-size: 80px;
+                    }
+
+                    h2 {
+                        font-size: 28px;
+                    }
+                }
+
+                .logo-banner {
+                    width: 480px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "hyperui",
+    "version": "0.0.0-dev.1",
+    "description": "A UI Component Libaray based on Vue3.",
+    "homepage": "",
+    "license": "MIT",
+    "peerDependencies": {
+        "vue": "^3.2.0"
+    },
+    "dependencies": {
+        "@ctrl/tinycolor": "^3.4.1",
+        "@vueuse/core": "^8.2.6"
+    },
+    "main": "./index.ts"
+    
+}

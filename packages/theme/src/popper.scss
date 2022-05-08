@@ -1,0 +1,88 @@
+.hp-popper {
+    position: absolute;
+    border-radius: 6px;
+    padding: 5px 11px;
+    z-index: 2000;
+    font-family: var(--hp-font-family);
+    font-size: 12px;
+    line-height: 20px;
+    min-width: 10px;
+    word-wrap: break-word;
+    visibility: visible;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+    &.dark {
+        color: #fff;
+        // background style should be set those child component like tooltip, popover.
+        // this below is for testing purposes only.
+        background-color: rgba(51, 51, 51, .85);
+        // border: 1px solid rgba(51, 51, 51, .85);
+
+        //arrow
+        .hp-popper-arrow::before {
+            background-color: rgba(51, 51, 51, .85);
+        }
+    }
+
+    &.light {
+        color: #000;
+        background-color: rgba(249, 249, 249, .5);
+        border: 1px solid var(--hp-color-border);
+
+        .hp-popper-arrow::before {
+            background-color: rgba(249, 249, 249, .5);
+        }
+    }
+
+    &.pure {
+        padding: 0;
+        backdrop-filter: none;
+    }
+
+    &.transform {
+        transition: transform 0.3s cubic-bezier(0.18,0.89,0.32,1.27), opacity .2s ease;
+    }
+
+    // Working on finding a perfect way to apply this slide-up-in transition.
+    // 😭😭😭
+    // &-slide-in {
+    //     &-enter-active, &-leave-active {
+    //         transition: transform .6s cubic-bezier(0.19, 1, 0.22, 1);
+            // animation: hp-slide-up-in .6s cubic-bezier(0.19, 1, 0.22, 1);
+            // animation-delay: .2s;
+
+        // }
+
+        // &-enter-from, &-leave-to {
+        //     transform-origin: 0 0;
+        //     transform: scaleY(.8);
+        // }
+
+        // &-enter-to, &-leave-from {
+        //     transform-origin: 0 0;
+        //     transform: scaleY(1);
+        // }
+    // }
+
+    // Seems like there can't be both arrowEl and transparent background.
+    // Temporarily close the showArrow prop. Working on a new solution...
+    // 😭😭😭
+    // .hp-popper-arrow {
+    //     position: absolute;
+    //     width: 10px;
+    //     height: 10px;
+    //     z-index: -1;
+    //     top: -5px;
+
+    //     &::before {
+    //         position: absolute;
+    //         width: 10px;
+    //         height: 10px;
+    //         z-index: -1;
+    //         content: '';
+    //         transform: rotate(45deg);
+    //         box-sizing: border-box;
+    //     }
+    // }
+}

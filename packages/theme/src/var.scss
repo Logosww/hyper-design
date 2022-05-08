@@ -1,0 +1,76 @@
+@mixin theme-color {
+    --hp-color-primary: #1abc9c;
+    --hp-color-danger: #fa6962;
+    --hp-color-warn: #ffc75e;
+    --hp-color-border: #dcdfe6;
+    --hp-color-button-default: #efefef;
+    --hp-color-button-default-hover: #dad8d8;
+    --hp-color-button-border-default: #5b5e63;
+    --hp-color-button-default-plain: #fff;
+    --hp-color-button-text-default-plain: #111;
+    --hp-color-button-default-disabled: #f7f7f7;
+    --hp-color-button-default-plain-hover: var(--hp-color-primary);
+    --hp-color-button-default-plain-active: #15967d;
+    --hp-color-button-primary: var(--hp-color-primary);
+    --hp-color-button-primary-hover: #48c9b0;
+    --hp-color-button-primary-active: #17a98c;
+    --hp-color-button-primary-plain: #e8f8f5;
+    --hp-color-button-primary-plain-hover: #1abc9c;
+    --hp-color-button-primary-plain-active: #17a98c;
+    --hp-color-button-primary-disabled: #8ddece;
+    --hp-color-button-danger: var(--hp-color-danger);
+    --hp-color-button-danger-hover: #fb8781;
+    --hp-color-button-danger-active: #e15f58;
+    --hp-color-button-danger-plain: #fff0ef;
+    --hp-color-button-danger-plain-hover: #fa6962;
+    --hp-color-button-danger-plain-active: #e15f58;
+    --hp-color-button-danger-disabled: #fdb4b1;
+    --hp-color-button-warn: var(--hp-color-warn);
+    --hp-color-button-warn-hover: #ffd27e;
+    --hp-color-button-warn-active: #e6b355;
+    --hp-color-button-warn-plain: #fff9ef;
+    --hp-color-button-warn-plain-hover: #ffc75e;
+    --hp-color-button-warn-plain-active: #e6b355;
+    --hp-color-button-warn-disabled: #ffdd9d;
+    --hp-color-text: #606662;
+    --hp-color-text-disabled: #a8abb2;
+    --hp-color-overlay: rgba(0, 0, 0, 0.302);
+    --hp-color-message-bg-info: #eef7ff;
+    --hp-color-message-bg-success: #e3ffea;
+    --hp-color-message-bg-error: #ffefec;
+    --hp-color-message-bg-warn: #fff2da;
+    --hp-color-message-text-info: #3c6382;
+    --hp-color-message-text-success: #2cc46b;
+    --hp-color-message-text-error: #ff5e57;
+    --hp-color-message-text-warn: #ffa801;
+    --hp-color-link-default: var(--hp-color-text);
+    --hp-color-link-default-hover: var(--hp-color-primary);
+    --hp-color-link-default-disabled: #a8abb2;
+    --hp-color-link-primary: var(--hp-color-primary);
+    --hp-color-link-primary-hover: #70e0ca;
+    --hp-color-link-primary-disabled: #81ddcb;
+    --hp-color-link-danger: var(--hp-color-danger);
+    --hp-color-link-danger-hover: #fd9f9a;
+    --hp-color-link-danger-disabled: #ffa7a2;
+    --hp-color-link-warn: #f8b537;
+    --hp-color-link-warn-hover: #ffd280;
+    --hp-color-link-warn-disabled: #ffdb98;
+    --hp-color-scrollview: #909994;
+    --hp-color-scrollview-hover: var(--hp-color-text);
+}
+
+@mixin theme-shadow {
+    --hp-shadow-dialog: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014,
+    0 9px 28px 8px #0000000d;
+    --hp-shadow-message-info: 0 5px 3px #dce5ee, 0 4px 2px #dce5ee, 0 9px 28px #dce5ee;
+    --hp-shadow-message-succeess:  0 5px 3px #d7f5e3, 0 4px 2px #d7f5e3, 0 9px 28px #d7f5e3;
+    --hp-shadow-messgae-error: 0 5px 3px #ffdede, 0 4px 2px #ffdede, 0 9px 28px #ffdede;
+    --hp-shadow-message-warn: 0 5px 3px #ffe9be, 0 4px 2px #ffe9be, 0 9px 28px #ffe9be;
+}
+
+@mixin theme-font{
+    --hp-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+    --hp-font-family-mono: "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif, "Courier New", monospace;
+}

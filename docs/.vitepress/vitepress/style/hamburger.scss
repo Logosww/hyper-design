@@ -1,0 +1,45 @@
+@use 'mixin' as *;
+
+.menu-hamburger {
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    justify-content: center;
+    height: var(--nav-height);
+    margin: 0 14px;
+
+    >span {
+        background-color: var(--hp-color-text);
+        border-radius: 12px;
+        height: 2px;
+        margin: 2px 0;
+        transition: all .3s ease;
+        width: 100%;
+    }
+
+    &.active {
+        .hamburger {
+            &-1 {
+                transform-origin: bottom;
+                width: 50%;
+                transform: rotatez(45deg) translate(13px, 0px);
+            }
+    
+            &-2 {
+                transform-origin: top;
+                transform: rotatez(-45deg);
+            }
+    
+            &-3 {
+                transform-origin: bottom;
+                width: 50%;
+                transform: translate(2px, -10px) rotatez(45deg);
+            }
+        }
+    }
+
+    @include respond-to('md') {
+        display: none;
+    }
+}

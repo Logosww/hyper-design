@@ -1,19 +1,36 @@
 {
-  "name": "myui",
-  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@7.0.1",
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "docs:dev": "pnpm run -C docs dev",
+    "docs:build": "pnpm run -C docs build",
+    "docs:serve": "pnpm run -C docs serve"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
   },
   "dependencies": {
-    "@ctrl/tinycolor": "^3.4.0",
-    "@vueuse/core": "^7.6.2",
-    "sass": "^1.49.0",
-    "vue": "^3.2.25"
+    "@hyper/components": "workspace:*",
+    "@hyper/constants": "workspace:*",
+    "@hyper/hooks": "workspace:*",
+    "@hyper/tokens": "workspace:*",
+    "@hyper/utils": "workspace:*",
+    "@vueuse/core": "^8.2.6",
+    "@popperjs/core": "^2.11.5",
+    "@ctrl/tinycolor": "^3.4.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.0.0",
-    "vite": "^2.7.2"
+    "@vitejs/plugin-vue": "^2.3.1",
+    "sass": "^1.50.0",
+    "vue": "3.2.31",
+    "vue-tsc": "^0.34.7",
+    "csstype": "^2.6.20",
+    "typescript": "^4.6.3",
+    "vue-router": "^4.0.14",
+    "sucrase": "^3.21.0"
   }
 }

@@ -1,0 +1,37 @@
+@use 'mixin' as *; 
+
+:root {
+    // layouts
+    --vp-screen-max-width: 1376px;
+
+    // header
+    --header-height: 55px;
+    --nav-height: 55px;
+
+    --vp-screen-max-width: 1362px;
+
+    @include respond-to('xxl') {
+        --vp-sidebar-width-small: 234px;
+    }
+
+    @include respond-to('max') {
+        --vp-screen-max-width: 1482px;
+        --vp-sidebar-width-small: 290px;
+    }
+
+    // sidebar
+    --vp-sidebar-width-mobile: 320px;
+    --vp-sidebar-width-small: 266px;
+    --sidebar-width-sm: 16rem;
+    --sidebar-width-xs: 20rem;
+
+    // content
+    --content-min-width: 16rem;
+    --content-max-width: 48rem;
+
+    // z-index
+    --nav-z-index: 20;
+    --sub-nav-z-index: 10;
+    --sidebar-z-index: 40;
+    --overlay-z-index: 30;
+}

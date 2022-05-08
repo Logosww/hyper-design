@@ -1,0 +1,9 @@
+.hp-fade-in-linear {
+    &-enter-active, &-leave-active {
+        transition: opacity .2s ease
+    }
+
+    &-enter-from, &-leave-to {
+        opacity: 0;
+    }
+}

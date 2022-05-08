@@ -1,0 +1,116 @@
+.hp-scrollview {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+
+    .hp-scrollview-wrapper {
+        overflow: auto;
+        height: 100%;
+
+        &.hidden-default {
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    .hp-scrollview-thumb {
+        position: relative;
+        display: block;
+        width: 0;
+        height: 0;
+        cursor: pointer;
+        border-radius: inherit;
+        background-color: var(--hp-color-scrollview);
+        transition: background-color .3s;
+        opacity: .3;
+
+        &:hover {
+            background-color: var(--hp-color-scrollview-hover);
+            opacity: .5;
+        }
+
+        &:active {
+            background-color: var(--hp-color-scrollview-hover);
+            opacity: .6;
+        }
+    }
+
+    .hp-scrollview-bar {
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
+        z-index: 1;
+        border-radius: 6px;
+        transition: transform .3s ease-out;
+
+        &.vertical {
+            width: 6px;
+            top: 2px;
+            
+            > div {
+                width: 100%;
+            }
+
+            &:hover {
+                transform: scaleX(1.43);
+            }
+    
+            &:active {
+                transform: scaleX(.5);
+            }
+        }
+
+        &.horizontal {
+            height: 6px;
+            left: 2px;
+
+            > div {
+                height: 100%;
+            }
+
+            &:hover {
+                transform: scalY(1.43);
+            }
+    
+            &:active {
+                transform: scaleY(.5);
+            }
+        }
+    }
+}
+
+.hp-scrollbar-vertical-fade {
+    &-enter-active {
+        transform: translateX(0);
+        transition: transform .8s ease-out;
+      }
+    
+      &-leave-active {
+        transition: transform .6s ease-in;
+      }
+    
+      &-enter-from,
+      &-leave-active {
+        // opacity: 0;
+        transform: translateX(100%);
+      }
+}
+
+.hp-scrollbar-horizontal-fade {
+    &-enter-active {
+        transform: translateY(0);
+        transition: transform .2s ease;
+      }
+    
+      &-leave-active {
+        transition: transform .6s ease-in;
+      }
+    
+      &-enter-from,
+      &-leave-active {
+        // opacity: 0;
+        transform: translateY(100%);
+      }
+}

@@ -1,0 +1,52 @@
+// @font-face {
+//     font-family: "hp-icon";
+//     /* Project id  */
+//     // src: url("/HyperUI/docs/.vitepress/vitepress/asset/icons/icon.ttf?t=1643610024925") format("truetype");
+//     // FIXME: url有问题
+//     src: url('../../asset/icons/icon.ttf?t=1643610024925') format('truetype');
+// }
+
+[class*="hp-icon-"],
+[class^="hp-icon-"] {
+    font-family: "hp-icon" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.hp-icon-close:before {
+    content: "\e62c";
+}
+
+.hp-icon-search:before {
+    content: "\e608";
+}
+
+.hp-icon-success:before {
+    content: "\f0071";
+}
+
+.hp-icon-error:before {
+    content: "\f006f";
+}
+
+.hp-icon-info:before {
+    content: "\e650";
+}
+
+.hp-icon-question:before {
+    content: "\f006d";
+}
+
+.hp-icon-warn:before {
+    content: "\e66c";
+}
+
+.hp-icon-copy:before {
+    content: "\e63d";
+}
+
+.hp-icon-code:before {
+    content: "\e606";
+}

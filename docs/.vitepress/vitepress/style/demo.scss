@@ -1,0 +1,66 @@
+.example {
+    border: 1px solid #dcdfe6;
+    border-radius: 16px;
+//     box-shadow:
+//   0px 0px 21px rgba(0, 0, 0, 0.04)
+// ;
+
+    .op-btns {
+        border-top: 1px solid #dcdfe6;
+        padding: .3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 2rem;
+    }
+
+    .op-btn {
+        margin: 0 .5rem;
+        cursor: pointer;
+        color: var(--hp-color-text);
+        transition: .3s;
+
+        &:hover {
+            color: var(--hp-color-primary);
+        }
+    }
+
+    &-float-control {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid #dcdfe6;
+        height: 44px;
+        box-sizing: border-box;
+        border-bottom-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+        margin-top: -1px;
+        color: var(--hp-color-text);
+        cursor: pointer;
+        position: sticky;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+
+        span {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        &:hover {
+            color: var(--hp-color-primary);
+        }
+    }
+}
+
+.example-showcase {
+    padding: 0.8rem;
+    margin: 0.5px;
+    background-color: rgba(0, 188, 156, 0.008);
+}
+
+.language-vue {
+    margin: 0;
+    border-radius: 0;
+}

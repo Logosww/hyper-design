@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "hp-icon"; /* Project id  */
+  src: url('icon.ttf?t=1651073499508') format('truetype');
+}
+
+.hp-icon {
+  font-family: "hp-icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* .icon-tishi:before {
+  content: "\e650";
+}
+
+.icon-yiwen:before {
+  content: "\f006d";
+}
+
+.icon-chucuo:before {
+  content: "\f006f";
+}
+
+.icon-zhengque:before {
+  content: "\f0071";
+}
+
+.icon-tishi1:before {
+  content: "\e66c";
+}
+
+.icon-ai-code:before {
+  content: "\e606";
+}
+
+.icon-icon_close:before {
+  content: "\e62c";
+}
+
+.icon-sousuo:before {
+  content: "\e608";
+}
+
+.icon-fuzhi:before {
+  content: "\e63d";
+} */
+

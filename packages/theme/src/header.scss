@@ -1,0 +1,8 @@
+.hp-header {
+    --hp-header-height: 60px;
+
+    padding: 0 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    height: var(--hp-header-height);
+}

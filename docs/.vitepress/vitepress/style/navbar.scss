@@ -1,0 +1,139 @@
+@use 'mixin' as *;
+
+// @use './nav/menu';
+
+.navbar-wrapper {
+    position: relative;
+    border-bottom: 1px solid #dcdfe6;
+    padding: 0 12px 0 24px;
+    height: var(--header-height);
+    top: 0;
+    background-color: rgba(0, 188, 156, .04);
+    box-shadow:
+        0px 15px 23px -6px rgba(0, 0, 0, 0.05);
+
+    @include respond-to('md') {
+        padding: 0 12px 0 32px;
+    }
+
+    @include respond-to('xlg') {
+        padding: 0 32px;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+
+        .content {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        @include respond-to('xxl') {
+            max-width: calc(var(--vp-screen-max-width));
+        }
+
+        @include respond-to('max') {
+            // 36 = 2 * 18 for each side.
+            max-width: calc(var(--vp-screen-max-width));
+        }
+    }
+
+    @include respond-to('md') {
+        .content {
+            padding-top: 1px;
+        }
+    }
+}
+
+.navbar {
+    top: 0;
+    left: 0;
+    position: relative;
+    z-index: var(--nav-z-index);
+    backdrop-filter: blur(20px);
+
+    @include respond-to('lg') {
+        position: fixed;
+        width: 100%;
+    }
+}
+
+.navbar-menu {
+    display: none;
+
+    @include respond-to('md') {
+        display: flex;
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+
+    .logo {
+        height: 26px;
+        transform: translateY(15%);
+    }
+}
+
+.full-screen {
+    position: fixed;
+    top: var(--nav-height);
+    right: 0;
+    bottom: -2000px; //FIXME: 本元素包含块下边界有问题？
+    left: 0;
+    padding: 0 32px;
+    width: 100%;
+    background-color: #fff;
+    transition: background-color .5s, opacity .3s ease;
+    overflow-y: auto;
+
+    &.hp-fade-in-enter-active,
+    &.hp-fade-in-leave-active {
+        opacity: 1;
+        .full-screen-container {
+            transition: transform .3s cubic-bezier(.645, .045, .355, 1);
+        }
+    }
+
+    &.hp-fade-in-enter-from,
+    &.hp-fade-in-leave-to {
+        opacity: 0;
+        .full-screen-container {
+            transform: translateY(-8px);
+        }
+    }
+}
+
+.full-screen-container {
+    margin: 0 auto;
+    padding: 24px 0 96px;
+    max-width: 18rem;
+}
+
+.full-screen-menu__item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hp-color-border);
+}
+
+.is-menu-link {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--text-color);
+    transition: color var(--el-transition-duration);
+
+    &.active {
+        border-bottom: 2px solid var(--brand-color);
+    }
+
+    &:hover {
+        color: var(--brand-color);
+    }
+}

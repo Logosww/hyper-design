@@ -1,0 +1,84 @@
+.hp-message {
+  position: fixed;
+  transition: top 0.8s cubic-bezier(0.17, 0.84, 0.44, 1);
+  left: 50%;
+  transform: translateX(-50%);
+}
+[class*="hp-message-container-"],
+[class^="hp-message-container-"] {
+  display: inline-block;
+  padding: 10px 20px 8px 20px;
+  border-radius: 16px;
+}
+.hp-message-container-info {
+  box-shadow: var(--hp-shadow-message-info);
+  background-color: var(--hp-color-message-bg-info);
+  .hp-message-content {
+    color: var(--hp-color-message-text-info);
+  }
+}
+.hp-message-container-success {
+  box-shadow: var(--hp-shadow-message-succeess);
+  background-color: var(--hp-color-message-bg-success);
+  .hp-message-content {
+    color: var(--hp-color-message-text-success);
+  }
+}
+.hp-message-container-error {
+  box-shadow: var(--hp-shadow-messgae-error);
+  background-color: var(--hp-color-message-bg-error);
+  .hp-message-content {
+    color: var(--hp-color-message-text-error);
+  }
+}
+.hp-message-container-warn {
+  box-shadow: var(--hp-shadow-message-warn);
+  background-color: var(--hp-color-message-bg-warn);
+  .hp-message-content {
+    color: var(--hp-color-message-text-warn);
+  }
+}
+.hp-message-content {
+  font-size: 15px;
+  line-height: 1.5715;
+  display: inline-flex;
+  align-items: center;
+
+  & i {
+    font-size: 19px;
+    margin-right: 8px;
+  }
+}
+.hp-message-enter-active {
+  animation: hp-message-enter 0.6s cubic-bezier(0.2, 0.89, 0.32, 1.4);
+}
+.hp-message-leave-active {
+  animation: hp-message-leave 0.5s ease;
+}
+.hp-message-leave-to {
+  opacity: 0;
+}
+@keyframes hp-message-enter {
+  0% {
+    transform-origin: 0 0;
+    transform: scaleX(0.4) scaleY(0.5) rotateX(150deg) translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform-origin: 0 0;
+    transform: scaleX(1) scaleY(1) rotateX(0) translateX(-50%);
+    opacity: 1;
+  }
+}
+@keyframes hp-message-leave {
+  0% {
+    transform-origin: 0 0;
+    transform: scaleX(1) scaleY(1) rotateX(0) translateX(-50%);
+    opacity: 1;
+  }
+  to {
+    transform-origin: 0 0;
+    transform: scaleX(0.4) scaleY(0.5) rotateX(150deg) translateX(-50%);
+    opacity: 0;
+  }
+}
